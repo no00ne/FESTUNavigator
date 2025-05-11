@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    plugins {
+        id("com.android.application") version "8.4.0"
+        id("com.android.library")    version "8.4.0"
+        id("org.jetbrains.kotlin.android") version "1.9.24"
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        // ★ 阿里云镜像。排在最前，gradle 优先命中 ★
+        maven { url "https://maven.aliyun.com/repository/google" }   // google()
+        maven { url "https://maven.aliyun.com/repository/public" }   // mavenCentral()
+
+        google()        // 兜底
+        mavenCentral()  // 兜底
+    }
+}
+
+
+rootProject.name = "FESTUNavigator"
+include(":app")
